@@ -385,55 +385,67 @@ article h3 {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: auto; /* Changed from 70vh to auto */
+  height: auto;
+  padding: 2rem 1rem; /* Add padding for better spacing on small screens */
 }
 
 .contact-info-upper-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Stack items vertically on small screens */
+  align-items: center;
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250); /* Corrected background color */
+  border: rgb(163, 163, 163) 0.1rem solid;
+  background: rgb(250, 250, 250);
   margin: 2rem auto;
-  padding: 0.5rem;
+  padding: 1rem;
+  max-width: 100%; /* Ensure it doesn't overflow the screen */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .contact-info-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Align items to the start on small screens */
   gap: 0.5rem;
-  margin: 1rem;
+  margin: 0.5rem 0; /* Reduced vertical margin */
+  width: 100%; /* Full width for better alignment */
 }
 
 .contact-info-container p {
-  font-size: larger;
+  font-size: 1rem; /* Slightly smaller font size */
+  word-break: break-all; /* Allow long email addresses to wrap */
 }
 
 .contact-icon {
   cursor: default;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .email-icon {
-  height: 2.5rem;
-}
-
-/* FOOTER SECTION */
-
-footer {
-  height: auto; /* Changed from 26vh to auto */
-  margin: 0 1rem;
-}
-
-footer p {
-  text-align: center;
+  height: 2rem; /* Slightly smaller icon */
 }
 
 /* MEDIA QUERIES FOR MOBILE RESPONSIVENESS */
 
 @media screen and (max-width: 768px) {
   /* Adjust navigation */
+  .contact-info-upper-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .contact-info-container {
+    margin: 1rem;
+    width: auto;
+  }
+
+  .contact-info-container p {
+    font-size: larger;
+  }
+
+  .email-icon {
+    height: 2.5rem;
+  }
   nav {
     justify-content: space-between;
     padding: 0 1rem;
